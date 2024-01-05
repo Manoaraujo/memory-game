@@ -11,22 +11,28 @@ function SingleCard({gameCard, handleChoice, flipCard, disabled}) {
    
    
    return (
-      <GridItem>
-      {flipCard ? (
-         <Image
-         borderRadius="5px"
-         src={require(`../../assets/img/${gameCard.name}.png`)}
-         alt={gameCard.name}
-         />
+      <GridItem
+         w={{
+            base: "100px",
+            md: "125px",
+            xl: "140px",
+         }}
+      >
+         {flipCard ? (
+            <Image
+               borderRadius="5px"
+               src={require(`../../assets/img/${gameCard.name}.png`)}
+               alt={gameCard.name}
+            />
          ) : (
             <Image
-            src={require("../../assets/img/back.png")}
-            alt={"card back"}
-            onClick={handleClick}
+               src={require("../../assets/img/back.png")}
+               alt={"card back"}
+               onClick={handleClick}
             />
-            )}
-            </GridItem>
-            );
+         )}
+      </GridItem>
+   );
          }
          
          export default SingleCard

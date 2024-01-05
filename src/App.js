@@ -2,6 +2,7 @@ import {
    Box,
    Button,
    Center,
+   Container,
    Flex,
    Grid,
    Image,
@@ -10,6 +11,7 @@ import {
    ModalContent,
    ModalHeader,
    ModalOverlay,
+   Select,
    Text,
    useDisclosure,
 } from "@chakra-ui/react";
@@ -17,6 +19,10 @@ import { useEffect, useState } from "react";
 
 import cardData from "../src/assets/cards.json";
 import SingleCard from "./components/singleCard";
+
+import { useTranslation } from "react-i18next";
+import i18n from "./Contexts/languageContext/i18n";
+// import i18n from './i18n';  // Importe o arquivo de configuração do i18n
 
 const cards = cardData;
 
@@ -29,6 +35,7 @@ function MemoryGameApp() {
    const [timer, setTimer] = useState(45);
    const { isOpen, onOpen, onClose } = useDisclosure();
    const [allStatusTrue, setAllStatusTrue] = useState(false);
+   const { t } = useTranslation(); // Hook de tradução
 
    useEffect(() => {
       let interval;
@@ -56,7 +63,7 @@ function MemoryGameApp() {
       setGameCards(shuffledCards);
       setTurns(0);
       setTimer(45);
-      setAllStatusTrue(false)
+      setAllStatusTrue(false);
    };
 
    const handleChoice = (card) => {
@@ -105,102 +112,153 @@ function MemoryGameApp() {
       setTimer(0);
    };
 
-
    return (
-      <Center
-         // bgColor={"lightblue"}
-         m="5"
-         p={3}
-         display="flex"
-         flexDirection="column"
-         gap="2"
+      <Container
+         p={1}
+         maxW="100vw"
+         h={{
+            // lg: "110vh",
+            xl: "100vh",
+         }}
+         bgGradient="linear(blue.100 0%, green.100 100%)"
       >
-         <Flex gap={2} align="center">
-            <Image
-               w="40px"
-               src={require("../src/assets/img/head.png")}
-               alt="head img"
-            />
-
-            <Text as="b" fontSize="xl">
-               Memory Game
-            </Text>
-         </Flex>
-         <Button onClick={shuffleCards} w="100px" size="sm">
-            New Game
-         </Button>
-         {gameCards.length > 0 ? (
-            <>
-               <Text>Time remaining: {timer} seconds</Text>
-               <Text> Turns: {turns}</Text>
-            </>
-         ) : (
-            <></>
-         )}
-         <Grid w="540px" templateColumns="repeat(4, 1fr)" gap={3}>
-            {gameCards.map((gameCard) => (
-               <SingleCard
-                  key={gameCard.id}
-                  gameCard={gameCard}
-                  handleChoice={handleChoice}
-                  flipCard={
-                     gameCard === cardOne ||
-                     gameCard === cardTwo ||
-                     gameCard.match
-                  }
-                  disabled={disabled}
+         <Box display="flex" w="50" m={1}>
+            <Select
+               borderRadius={4}
+               color="blue.600"
+               bg="blue.200"
+               size="sm"
+               w="50"
+               onChange={(e) => i18n.changeLanguage(e.target.value)}
+            >
+               <option value="pt">PT</option>
+               <option value="en">EN</option>
+            </Select>
+         </Box>
+         <Center display="flex" flexDirection="column" gap="2">
+            {/* Language Selector */}
+            <Flex gap={1} align="center">
+               <Image
+                  w="60px"
+                  src={require("../src/assets/img/head.png")}
+                  alt="head img"
                />
-            ))}
-         </Grid>
+               <Text
+                  color="blue.800"
+                  as="b"
+                  fontSize={{ base: "2xl", md: "2xl", lg: "3xl" }}
+               >
+                  {t("gameTitle")}
+               </Text>
+            </Flex>
+            <Button
+               colorScheme="blue"
+               onClick={shuffleCards}
+               w="100px"
+               size="sm"
+            >
+               {t("newGame")}
+            </Button>
+            {gameCards.length > 0 ? (
+               <>
+                  <Text color="blue.800">
+                     {t("timeRemaining", { seconds: timer })}
+                  </Text>
+                  <Text color="blue.800">{t("turns", { turns })}</Text>
+               </>
+            ) : (
+               <></>
+            )}
+            <Grid
+               w={{
+                  base: "320px",
+                  md: "540px",
+                  xl: "580px",
+               }}
+               templateColumns={{
+                  base: "repeat(3, 1fr)",
+                  md: "repeat(4, 1fr)",
+               }}
+               gap={{
+                  base: 2,
+                  md: 2,
+                  lg: 2,
+               }}
+            >
+               {gameCards.map((gameCard) => (
+                  <SingleCard
+                     key={gameCard.id}
+                     gameCard={gameCard}
+                     handleChoice={handleChoice}
+                     flipCard={
+                        gameCard === cardOne ||
+                        gameCard === cardTwo ||
+                        gameCard.match
+                     }
+                     disabled={disabled}
+                  />
+               ))}
+            </Grid>
 
-         {/* modal pop up */}
-
-         <Modal isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
-            <ModalContent>
-               <ModalBody display="flex" flexDirection="column" align="center">
-                  <Box>
-                     {allStatusTrue ? (
-                        <Image
-                           w="100px"
-                           src={require("../src/assets/img/win.png")}
-                           alt="fireworks img"
-                        />
-                     ) : (
-                        <Image
-                           w="100px"
-                           src={require("../src/assets/img/sad.png")}
-                           alt="sad face img"
-                        />
-                     )}
-                     <ModalHeader>
-                        {allStatusTrue ? "WELL DONE!" : "GAME OVER"}
-                     </ModalHeader>
-                  </Box>
-                  <Button
-                     colorScheme="blue"
-                     m={3}
-                     onClick={() => {
-                        shuffleCards();
-                        onClose();
-                     }}
+            {/* Modal Popup */}
+            <Modal isOpen={isOpen} onClose={onClose}>
+               <ModalOverlay />
+               <ModalContent
+                  w={{
+                     base: "320px",
+                     md: "540px",
+                  }}
+               >
+                  <ModalBody
+                     borderRadius={6}
+                     bg="blue.100"
+                     display="flex"
+                     flexDirection="column"
+                     align="center"
                   >
-                     Try Again
-                  </Button>
-                  <Button
-                     m={3}
-                     onClick={() => {
-                        onClose();
-                        resetTimer();
-                     }}
-                     variant="ghost"
-                  >
-                     Not Now
-                  </Button>
-               </ModalBody>
-            </ModalContent>
-         </Modal>
-      </Center>
+                     <Box>
+                        {allStatusTrue ? (
+                           <Image
+                              w="100px"
+                              src={require("../src/assets/img/win.png")}
+                              alt="fireworks img"
+                           />
+                        ) : (
+                           <Image
+                              w="100px"
+                              src={require("../src/assets/img/sad.png")}
+                              alt="sad face img"
+                           />
+                        )}
+                        <ModalHeader>
+                           {allStatusTrue ? t("wellDone") : t("gameOver")}
+                        </ModalHeader>
+                     </Box>
+                     <Button
+                        colorScheme="blue"
+                        m={3}
+                        onClick={() => {
+                           shuffleCards();
+                           onClose();
+                        }}
+                     >
+                        {t("tryAgain")}
+                     </Button>
+                     <Button
+                        m={3}
+                        onClick={() => {
+                           onClose();
+                           resetTimer();
+                        }}
+                        variant="ghost"
+                     >
+                        {t("notNow")}
+                     </Button>
+                  </ModalBody>
+               </ModalContent>
+            </Modal>
+         </Center>
+      </Container>
    );
 }
 
