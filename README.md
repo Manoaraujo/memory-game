@@ -15,9 +15,23 @@ Jogo de memória é um projeto desenvolvido com design responsivo em React e Cha
 - A cada par clicado é adicionado uma rodada ao contador.
 - A cada novo jogo o contador é zerado.
 
+# Memory Game
 
+A memory game to test your mind and challenge your friends.
 
-## Autor
+## Features
+
+Memory Game is a project developed with responsive design in React and Chakra UI Framework.
+
+- The game offers the option to display in Pt-Br and En-Us.
+- Upon starting the game, cards are randomly distributed, and a 45s countdown begins.
+- Clicking on a card reveals the hidden image. After turning 2 cards, if the images match, they remain visible; otherwise, they are flipped back.
+- If all pairs are discovered before the time runs out, a message appears on the screen congratulating the victory and providing options to try again or give up.
+- If time runs out before all pairs are discovered, a message appears on the screen stating that the game is over and providing options to try again or give up.
+- Each pair clicked adds a round to the counter.
+- With each new game, the counter is reset.
+
+## Autor/Author
 
 - [Mano Araujo - Github](https://github.com/Manoaraujo)
 - [Mano Araujo - Linkedin](https://www.linkedin.com/in/germano-araujo/)
