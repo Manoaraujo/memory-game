@@ -16,9 +16,6 @@ import {
 import { useEffect, useState } from "react";
 
 import cardData from "../src/assets/cards.json";
-// import headImage from "../src/assets/img/head.png";
-import sadImage from "../src/assets/img/sad.png";
-import winImage from "../src/assets/img/win.png";
 import SingleCard from "./components/singleCard";
 
 const cards = cardData;
@@ -32,7 +29,6 @@ function MemoryGameApp() {
    const [timer, setTimer] = useState(45);
    const { isOpen, onOpen, onClose } = useDisclosure();
    const [allStatusTrue, setAllStatusTrue] = useState(false);
-   const [scoreTable, setScoreTable] = useState([]);
 
    useEffect(() => {
       let interval;
@@ -60,6 +56,7 @@ function MemoryGameApp() {
       setGameCards(shuffledCards);
       setTurns(0);
       setTimer(45);
+      setAllStatusTrue(false)
    };
 
    const handleChoice = (card) => {
@@ -100,7 +97,6 @@ function MemoryGameApp() {
    useEffect(() => {
       if (gameCards.every((card) => card.match === true) && turns > 0) {
          setAllStatusTrue(true);
-         setScoreTable((prevTurns) => [...prevTurns, turns]);
          onOpen();
       }
    }, [gameCards, turns, onOpen]);
@@ -109,11 +105,10 @@ function MemoryGameApp() {
       setTimer(0);
    };
 
-   console.log(cards.map((card) => card.img));
 
    return (
       <Center
-         bgColor={"lightblue"}
+         // bgColor={"lightblue"}
          m="5"
          p={3}
          display="flex"
@@ -121,7 +116,6 @@ function MemoryGameApp() {
          gap="2"
       >
          <Flex gap={2} align="center">
-            {/* <Image w="40px" src={"../src/assets/img/head.png"} alt="head img" /> */}
             <Image
                w="40px"
                src={require("../src/assets/img/head.png")}
@@ -134,9 +128,6 @@ function MemoryGameApp() {
          </Flex>
          <Button onClick={shuffleCards} w="100px" size="sm">
             New Game
-         </Button>
-         <Button onClick={shuffleCards} w="100px" size="sm">
-            Scores
          </Button>
          {gameCards.length > 0 ? (
             <>

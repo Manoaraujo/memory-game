@@ -1,32 +1,32 @@
 [
     {
         "name": "cat",
-        "img": "./img/cat.png",
+        "img": "../../assets/img/cat.png",
         "match": false
     },
     {
         "name": "cow",
-        "img": "./img/cow.png",
+        "img": "../../assets/img/cow.png",
         "match": false
     },
     {
         "name": "dolphin",
-        "img": "./img/dolphin.png",
+        "img": "../../assets/img/dolphin.png",
         "match": false
     },
     {
         "name": "duck",
-        "img": "./img/duck.png",
+        "img": "../../assets/img/duck.png",
         "match": false
     },
     {
         "name": "horse",
-        "img": "./img/horse.png",
+        "img": "../../assets/img/horse.png",
         "match": false
     },
     {
         "name": "snake",
-        "img": "./img/snake.png",
+        "img": "../../assets/img/snake.png",
         "match": false
     }
 ]
