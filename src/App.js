@@ -117,7 +117,7 @@ function MemoryGameApp() {
          p={1}
          maxW="100vw"
          h={{
-            // lg: "110vh",
+            base: "110vh",
             xl: "100vh",
          }}
          bgGradient="linear(blue.100 0%, green.100 100%)"
