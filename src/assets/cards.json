@@ -1,0 +1,32 @@
+[
+    {
+        "name": "cat",
+        "img": "./img/cat.png",
+        "match": false
+    },
+    {
+        "name": "cow",
+        "img": "./img/cow.png",
+        "match": false
+    },
+    {
+        "name": "dolphin",
+        "img": "./img/dolphin.png",
+        "match": false
+    },
+    {
+        "name": "duck",
+        "img": "./img/duck.png",
+        "match": false
+    },
+    {
+        "name": "horse",
+        "img": "./img/horse.png",
+        "match": false
+    },
+    {
+        "name": "snake",
+        "img": "./img/snake.png",
+        "match": false
+    }
+]
