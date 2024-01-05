@@ -1,70 +1,36 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Jogo da memória 
 
-## Available Scripts
+Jogo de memoria para testar a sua mente e desafiar seus amigos.
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `npm start`
+Jogo de memória é um projeto desenvolvido com design responsivo em React e Chakra UI Framework 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- O mesmo conta com a opção de exibição em Pt-Br e En-Us.
+- Ao iniciar o Jogo as cartas são distribuidas de forma aleatoria e ativa uma contagem regressiva de 45s.
+- Ao clicar na carta a mesma mosta a figura escondida, após virar 2 cartas, se as imagens forem iguais elas parmanecem a mostra, se não as figura voltam a escondidas.
+- Se os todos os pares forem descobertos antes do fim do tempo, uma mensagem aparece na tela parabenizando a vitória e dando as opções de tentar novamente ou desistir.
+- Caso o tempo termine antes de todos os pares serem descobertos, uma mensagem aparece na tela informando que o jogo acabou  e dando as opções de tentar novamente ou desistir.
+- A cada par clicado é adicionado uma rodada ao contador.
+- A cada novo jogo o contador é zerado.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Autor
 
-### `npm run build`
+- [Mano Araujo - Github](https://github.com/Manoaraujo)
+- [Mano Araujo - Linkedin](https://www.linkedin.com/in/germano-araujo/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshots
+<img src="https://github.com/Manoaraujo/memory-game/blob/master/public/Screenshots/vid01.gif">
+<img src="https://github.com/Manoaraujo/memory-game/blob/master/public/Screenshots/vid02.gif">
+<img src="https://github.com/Manoaraujo/memory-game/blob/master/public/Screenshots/01.png">
+<img src="https://github.com/Manoaraujo/memory-game/blob/master/public/Screenshots/02.png">
+<img src="https://github.com/Manoaraujo/memory-game/blob/master/public/Screenshots/03.png">
+<img src="https://github.com/Manoaraujo/memory-game/blob/master/public/Screenshots/04.png">
+<img src="https://github.com/Manoaraujo/memory-game/blob/master/public/Screenshots/05png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
